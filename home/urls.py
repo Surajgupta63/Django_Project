@@ -9,4 +9,5 @@ urlpatterns = [
     path('contact', views.contact, name='contact'),
     path('login', views.loginUser, name='loginUser'),
     path('logout', views.logoutUser, name='logoutUser'),
+    path('handleRequest', views.handleRequest, name='handleRequest'),
 ]

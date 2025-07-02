@@ -6,11 +6,12 @@ from datetime import datetime
 
 # Create your models here.
 class Contact(models.Model):
-    name  = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
-    phone = models.CharField(max_length=12)
-    desc  = models.TextField()
-    date  = models.DateField()
+    name   = models.CharField(max_length=255)
+    email  = models.CharField(max_length=255)
+    phone  = models.CharField(max_length=12)
+    amount = models.IntegerField(default=0)
+    desc   = models.TextField()
+    date   = models.DateField()
 
     def __str__(self):
         return self.name
