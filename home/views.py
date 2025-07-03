@@ -77,18 +77,20 @@ def logoutUser(request):
 ## Paytm Gateway Integration Request ke liye
 @csrf_exempt
 def handleRequest(request):
-    form = request.POST
-    response_dict = {}
-    for i in form.keys():
-        response_dict[i] = form[i]
-        if i == 'CHECKSUMHASH':
-            checksum = form[i]
-    
-    verify = Checksum.verify_checksum(response_dict, os.getenv('MERCHANT_KEY'), checksum)
-    if verify:
-        if response_dict['RESPCODE'] == '01':
-            print('payment succesfull.')
-        else:
-            print('payment unsuccessfull because ' + response_dict['RESPMSG'])
 
-    return render(request, 'paymentstatus.html', {'response': response_dict})
+    return HttpResponse("Your Payments is done")
+    # form = request.POST
+    # response_dict = {}
+    # for i in form.keys():
+    #     response_dict[i] = form[i]
+    #     if i == 'CHECKSUMHASH':
+    #         checksum = form[i]
+    
+    # verify = Checksum.verify_checksum(response_dict, os.getenv('MERCHANT_KEY'), checksum)
+    # if verify:
+    #     if response_dict['RESPCODE'] == '01':
+    #         print('payment succesfull.')
+    #     else:
+    #         print('payment unsuccessfull because ' + response_dict['RESPMSG'])
+
+    # return render(request, 'paymentstatus.html', {'response': response_dict})
